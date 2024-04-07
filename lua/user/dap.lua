@@ -165,6 +165,7 @@ function M.Config()
     require("nvim-dap-virtual-text").setup()
 
     local dap, dapui = require("dap"), require("dapui")
+
     keymap(dap)
     dapPython(dap)
     dapGo(dap)

@@ -3,7 +3,7 @@
 -- ======================================================
 
 lvim.plugins = {
-    { "lunarvim/colorschemes" },
+    -- { "lunarvim/colorschemes" },
     {
         "nvim-neorg/neorg",
         ft = "norg",   -- lazy-load on filetype
@@ -15,8 +15,6 @@ lvim.plugins = {
         event = "BufRead",
         config = function()
             require("hop").setup()
-            vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
-            vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
         end,
     },
     -- hint when you type
@@ -37,15 +35,6 @@ lvim.plugins = {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",
         config = function()
-            lvim.builtin.which_key.mappings["t"] = {
-                name = "Diagnostics",
-                t = { "<cmd>TroubleToggle<cr>", "trouble" },
-                w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
-                d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
-                q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
-                l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
-                r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
-            }
         end
     },
     -- automatically saving your work whenever you make changes to it
@@ -91,25 +80,25 @@ lvim.plugins = {
         end,
     },
     -- smooth scrolling
-    {
-        "karb94/neoscroll.nvim",
-        event = "WinScrolled",
-        config = function()
-            require('neoscroll').setup({
-                -- All these keys will be mapped to their corresponding default scrolling animation
-                mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
-                    '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
-                hide_cursor = true,          -- Hide cursor while scrolling
-                stop_eof = true,             -- Stop at <EOF> when scrolling downwards
-                use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
-                respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-                cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-                easing_function = nil,       -- Default easing function
-                pre_hook = nil,              -- Function to run before the scrolling animation starts
-                post_hook = nil,             -- Function to run after the scrolling animation ends
-            })
-        end
-    },
+    -- {
+    --     "karb94/neoscroll.nvim",
+    --     event = "WinScrolled",
+    --     config = function()
+    --         require('neoscroll').setup({
+    --             -- All these keys will be mapped to their corresponding default scrolling animation
+    --             mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
+    --                 '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
+    --             hide_cursor = true,          -- Hide cursor while scrolling
+    --             stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+    --             use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+    --             respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+    --             cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+    --             easing_function = nil,       -- Default easing function
+    --             pre_hook = nil,              -- Function to run before the scrolling animation starts
+    --             post_hook = nil,             -- Function to run after the scrolling animation ends
+    --         })
+    --     end
+    -- },
     -- pick up where you left off
     {
         "ethanholz/nvim-lastplace",
@@ -145,6 +134,7 @@ lvim.plugins = {
     {
         -- snippets管理插件
         "chrisgrieser/nvim-scissors",
+        event = "BufRead",
         dependencies = "nvim-telescope/telescope.nvim", -- optional
         config = function()
             local snippetsDir = "~/.config/lvim/snippets/"
@@ -157,7 +147,7 @@ lvim.plugins = {
     -- dap
     {
         "mfussenegger/nvim-dap",
-        lazy = false,
+        keys = { "<F5>" },
         dependencies = {
             -- dap中启用虚拟文本插件
             "theHamsta/nvim-dap-virtual-text",
@@ -169,4 +159,29 @@ lvim.plugins = {
             require("user.dap").Config()
         end,
     },
+    -- go support plugin 
+    {
+        "fatih/vim-go",
+        ft = "go",
+        config = function ()
+        end
+    },
+    -- select window
+    {
+        "yorickpeterse/nvim-window",
+        config = function ()
+            require('nvim-window').setup({
+                -- The characters available for hinting windows.
+                chars = { '1', '2', '3', '4', '5', '6', '7', '8' },
+                -- A group to use for overwriting the Normal highlight group in the floating
+                -- window. This can be used to change the background color.
+                normal_hl = 'Normal',
+                -- The highlight group to apply to the line that contains the hint characters.
+                -- This is used to make them stand out more.
+                hint_hl = 'Bold',
+                -- The border style to use for the floating window.
+                border = 'single'
+            })
+        end
+    }
 }
