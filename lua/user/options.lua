@@ -16,9 +16,8 @@ vim.opt.shiftwidth = 4                  -- the number of spaces inserted for eac
 vim.opt.tabstop = 4                     -- insert 2 spaces for a tab
 vim.opt.relativenumber = true           -- relative line numbers
 vim.opt.wrap = true                     -- wrap lines
+-- dap debug icon
 vim.fn.sign_define('DapBreakpoint',{ text ='🔴', texthl ='', linehl ='', numhl =''})
--- vim.fn.sign_define('DapStopped',{ text ='⚪', texthl ='', linehl ='', numhl =''})
--- vim.fn.sign_define('DapBreakpoint',{ text ='❤️', texthl ='', linehl ='', numhl =''})
 vim.fn.sign_define('DapStopped',{ text ='👉', texthl ='', linehl ='', numhl =''})
 
 -- use treesitter folding

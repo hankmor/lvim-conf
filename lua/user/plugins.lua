@@ -157,6 +157,7 @@ lvim.plugins = {
     -- dap
     {
         "mfussenegger/nvim-dap",
+        lazy = false,
         dependencies = {
             -- dap中启用虚拟文本插件
             "theHamsta/nvim-dap-virtual-text",
