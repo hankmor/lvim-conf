@@ -5,7 +5,8 @@
 -- set leader key
 lvim.leader = "space"
 -- set colorscheme
-lvim.colorscheme = 'tokyonight'
+-- lvim.colorscheme = 'tokyonight'
+lvim.colorscheme = 'lunar'
 -- format on save
 lvim.format_on_save = false
 
@@ -24,8 +25,6 @@ vim.fn.sign_define('DapStopped',{ text ='👉', texthl ='', linehl ='', numhl ='
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
--- X closes a buffer
-lvim.keys.normal_mode["<S-x>"] = ":BufferKill<CR>"
 -- delete map
 -- lvim.keys.normal_mode["<C-h>"] = false
 

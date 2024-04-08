@@ -1,33 +1,23 @@
 local function keymap(dap)
-    local widgets = require('dap.ui.widgets')
-
+    -- keymapping to Jetbrains
     vim.keymap.set('n', '<F5>', function() dap.continue() end)
     vim.keymap.set('n', '<F8>', function() dap.step_over() end)
     vim.keymap.set('n', '<F7>', function() dap.step_into() end)
     vim.keymap.set('n', '<F9>', function() dap.step_out() end)
-    vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end)
-    vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint() end)
-    vim.keymap.set('n', '<Leader>lp', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
-    vim.keymap.set('n', '<Leader>dr', function() dap.repl.open() end)
-    vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end)
-    vim.keymap.set("n", "<leader>dn",  "<Cmd>lua require('dap').terminate()<CR>")
-    vim.keymap.set("n", "<leader>ev",  "<Cmd>lua require('dapui').eval()<CR>")
-    vim.keymap.set("n", "<leader>dc",  "<Cmd>lua require('dapui').close()<CR>")
-    vim.keymap.set("n", "<leader>do",  "<Cmd>lua require('dapui').open()<CR>")
-    vim.keymap.set("n", "<leader>dt",  "<Cmd>lua require('dapui').toggle()<CR>")
 
-    vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
-        widgets.hover()
-    end)
-    vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
-        widgets.preview()
-    end)
-    vim.keymap.set('n', '<Leader>df', function()
-        widgets.centered_float(widgets.frames)
-    end)
-    vim.keymap.set('n', '<Leader>ds', function()
-        widgets.centered_float(widgets.scopes)
-    end)
+    -- local widgets = require('dap.ui.widgets')
+    -- vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
+    --     widgets.hover()
+    -- end)
+    -- vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
+    --     widgets.preview()
+    -- end)
+    -- vim.keymap.set('n', '<Leader>df', function()
+    --     widgets.centered_float(widgets.frames)
+    -- end)
+    -- vim.keymap.set('n', '<Leader>ds', function()
+    --     widgets.centered_float(widgets.scopes)
+    -- end)
 end
 
 local function dapPython(dap)
@@ -88,9 +78,6 @@ end
 local function dapGo(dap)
     -- go debug delve
     require('dap-go').setup() -- 启动 nvim-dap-go
-    local dapgo = require('dap-go')
-    vim.keymap.set("n", "<leader>dt", dapgo.debug_test)
-    vim.keymap.set("n", "<leader>dl", dapgo.debug_last_test)
     dap.adapters.delve = {
         path = "dlv",
         initialize_timeout_sec = 20,

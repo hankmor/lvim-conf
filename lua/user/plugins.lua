@@ -147,7 +147,11 @@ lvim.plugins = {
     -- dap
     {
         "mfussenegger/nvim-dap",
-        keys = { "<F5>" },
+        keys = {
+            { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>", desc = "Dap Continue" },
+            { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>", desc = "Dap Start" },
+            { "<leader>dt", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
+        },
         dependencies = {
             -- dap中启用虚拟文本插件
             "theHamsta/nvim-dap-virtual-text",
