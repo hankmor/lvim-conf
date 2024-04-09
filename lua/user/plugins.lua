@@ -3,7 +3,7 @@
 -- ======================================================
 
 lvim.plugins = {
-    -- { "lunarvim/colorschemes" },
+    { "lunarvim/colorschemes" },
     {
         "nvim-neorg/neorg",
         ft = "norg",   -- lazy-load on filetype
@@ -148,14 +148,14 @@ lvim.plugins = {
     {
         "mfussenegger/nvim-dap",
         keys = {
-            { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>", desc = "Dap Continue" },
-            { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>", desc = "Dap Start" },
+            { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Continue" },
+            { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Start" },
             { "<leader>dt", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
         },
         dependencies = {
             -- dap中启用虚拟文本插件
             "theHamsta/nvim-dap-virtual-text",
-            { "rcarriga/nvim-dap-ui", dependencies = {"nvim-neotest/nvim-nio"}},
+            { "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
             -- dap 中自动调用 delve 调试 go
             "leoluz/nvim-dap-go",
         },
@@ -163,17 +163,17 @@ lvim.plugins = {
             require("user.dap").Config()
         end,
     },
-    -- go support plugin 
+    -- go support plugin
     {
         "fatih/vim-go",
         ft = "go",
-        config = function ()
+        config = function()
         end
     },
     -- select window
     {
         "yorickpeterse/nvim-window",
-        config = function ()
+        config = function()
             require('nvim-window').setup({
                 -- The characters available for hinting windows.
                 chars = { '1', '2', '3', '4', '5', '6', '7', '8' },
@@ -187,5 +187,14 @@ lvim.plugins = {
                 border = 'single'
             })
         end
-    }
+    },
+    -- witch color scheme
+    {
+        "sontungexpt/witch",
+        priority = 1000,
+        lazy = false,
+        config = function(_, opts)
+            require("witch").setup(opts)
+        end,
+    },
 }
