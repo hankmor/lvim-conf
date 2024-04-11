@@ -5,10 +5,10 @@
 -- set leader key
 lvim.leader = "space"
 -- enable transparent window
-lvim.transparent_window = true
+lvim.transparent_window = false
 -- set colorscheme
 -- lvim.colorscheme = 'tokyonight'
--- lvim.colorscheme = 'lunar'
+lvim.colorscheme = 'lunar'
 -- format on save
 lvim.format_on_save = false
 vim.g.go_fmt_autosave = 0

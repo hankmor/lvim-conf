@@ -3,7 +3,7 @@
 -- ======================================================
 
 lvim.plugins = {
-    { "lunarvim/colorschemes" },
+    -- { "lunarvim/colorschemes" },
     {
         "nvim-neorg/neorg",
         ft = "norg",   -- lazy-load on filetype
@@ -16,12 +16,6 @@ lvim.plugins = {
         config = function()
             require("hop").setup()
         end,
-    },
-    -- hint when you type
-    {
-        "ray-x/lsp_signature.nvim",
-        event = "BufRead",
-        config = function() require "lsp_signature".on_attach() end,
     },
     -- a tree like view for symbols
     {
@@ -168,7 +162,14 @@ lvim.plugins = {
         "fatih/vim-go",
         ft = "go",
         config = function()
+            require "lsp_signature".on_attach()
         end
+    },
+    -- hint when you type
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "BufRead",
+        config = function() require "lsp_signature".on_attach() end,
     },
     -- select window
     {
@@ -191,10 +192,26 @@ lvim.plugins = {
     -- witch color scheme
     {
         "sontungexpt/witch",
-        priority = 1000,
+        priority = 900,
         lazy = false,
-        config = function(_, opts)
-            require("witch").setup(opts)
+        config = function()
+            require("witch").setup {
+                style = "light",
+                theme = {
+                    extras = {
+                        bracket = true,
+                        dashboard = true,
+                        diffview = true,
+                        explorer = true,
+                        -- indentline = true,
+                    },
+                },
+                more_themes = {
+                    dark1 = {
+                        comment = "#ccc000",
+                    }
+                }
+            }
         end,
     },
 }
