@@ -10,7 +10,7 @@ lvim.transparent_window = false
 -- lvim.colorscheme = 'tokyonight'
 -- lvim.colorscheme = 'lunar'
 -- lvim.colorscheme = 'xcodedark'
-lvim.colorscheme = 'github_dark'
+lvim.colorscheme = 'github_dark_default'
 -- format on save
 lvim.format_on_save = false
 vim.g.go_fmt_autosave = 0
