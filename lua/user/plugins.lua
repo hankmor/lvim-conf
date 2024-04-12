@@ -190,42 +190,42 @@ lvim.plugins = {
         end
     },
     -- ========== colorthemes ==========
-    {
-        "sontungexpt/witch",
-        priority = 900,
-        lazy = false,
-        config = function()
-            require("witch").setup {
-                style = "light",
-                theme = {
-                    extras = {
-                        bracket = true,
-                        dashboard = true,
-                        diffview = true,
-                        explorer = true,
-                        -- indentline = true,
-                    },
-                },
-                more_themes = {
-                    dark1 = {
-                        comment = "#ccc000",
-                    }
-                }
-            }
-        end,
-    },
-    {
-        'arzg/vim-colors-xcode',
-        config = function()
-        end
-    },
+    -- {
+    --     "sontungexpt/witch",
+    --     priority = 900,
+    --     lazy = false,
+    --     config = function()
+    --         require("witch").setup {
+    --             style = "light",
+    --             theme = {
+    --                 extras = {
+    --                     bracket = true,
+    --                     dashboard = true,
+    --                     diffview = true,
+    --                     explorer = true,
+    --                     -- indentline = true,
+    --                 },
+    --             },
+    --             more_themes = {
+    --                 dark1 = {
+    --                     comment = "#ccc000",
+    --                 }
+    --             }
+    --         }
+    --     end,
+    -- },
+    -- {
+    --     'arzg/vim-colors-xcode',
+    --     config = function()
+    --     end
+    -- },
     {
         'projekt0n/github-nvim-theme',
         lazy = false,        -- make sure we load this during startup if it is your main colorscheme
         priority = 1000,     -- make sure to load this before all the other start plugins
         config = function()
-            require('github-theme').setup({
-            })
+            -- require('github-theme').setup({
+            -- })
         end,
     },
     -- ========== colorthemes end ==========
