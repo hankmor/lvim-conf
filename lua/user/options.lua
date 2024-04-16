@@ -2,6 +2,9 @@
 -- customize vim options
 -- ======================================================
 
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+
 -- set leader key
 lvim.leader = "space"
 -- enable transparent window

@@ -139,25 +139,59 @@ lvim.plugins = {
         end
     },
     -- dap
+    -- {
+    --     "mfussenegger/nvim-dap",
+    --     keys = {
+    --         { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Continue" },
+    --         { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Start" },
+    --         { "<leader>dt", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
+    --     },
+    --     dependencies = {
+    --         -- dap中启用虚拟文本插件
+    --         "theHamsta/nvim-dap-virtual-text",
+    --         { "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
+    --         -- dap 中自动调用 delve 调试 go
+    --         "leoluz/nvim-dap-go",
+    --     },
+    --     config = function()
+    --         require("user.dap").Config()
+    --     end,
+    -- },
+    -- python support
     {
-        "mfussenegger/nvim-dap",
-        keys = {
-            { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Continue" },
-            { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Start" },
-            { "<leader>dt", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
+        'mfussenegger/nvim-dap-python',
+        dependencies = {
+            "nvim-neotest/neotest",
+            "nvim-neotest/neotest-python",
+            "nvim-neotest/nvim-nio",
         },
+        config = function()
+            require("user.dap").ConfigPython()
+            require("neotest").setup({
+                adapters = {
+                    require("neotest-python")({
+                        dap = {
+                            justMyCode = false,
+                            console = "integratedTerminal",
+                        },
+                        args = { "--log-level", "DEBUG", "--quiet" },
+                        runner = "pytest",
+                    })
+                }
+            })
+        end
+    },
+    -- go support plugin
+    {
+        "leoluz/nvim-dap-go",
         dependencies = {
             -- dap中启用虚拟文本插件
             "theHamsta/nvim-dap-virtual-text",
-            { "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
-            -- dap 中自动调用 delve 调试 go
-            "leoluz/nvim-dap-go",
         },
         config = function()
-            require("user.dap").Config()
-        end,
+            require("user.dap").ConfigGo()
+        end
     },
-    -- go support plugin
     {
         "fatih/vim-go",
         ft = "go",
@@ -221,8 +255,8 @@ lvim.plugins = {
     -- },
     {
         'projekt0n/github-nvim-theme',
-        lazy = false,        -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000,     -- make sure to load this before all the other start plugins
+        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             -- require('github-theme').setup({
             -- })
@@ -230,4 +264,3 @@ lvim.plugins = {
     },
     -- ========== colorthemes end ==========
 }
-

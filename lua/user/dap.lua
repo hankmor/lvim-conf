@@ -21,6 +21,8 @@ local function keymap(dap)
 end
 
 local function dapPython(dap)
+    require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+
     -- python debugpy
     dap.adapters.python = function(cb, config)
         if config.request == 'attach' then
@@ -51,13 +53,13 @@ local function dapPython(dap)
     dap.configurations.python = {
         {
             -- The first three options are required by nvim-dap
-            type = 'python'; -- the type here established the link to the adapter definition: `dap.adapters.python`
-            request = 'launch';
-            name = "Launch file";
+            type = 'python', -- the type here established the link to the adapter definition: `dap.adapters.python`
+            request = 'launch',
+            name = "Launch file",
 
             -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
 
-            program = "${file}"; -- This configuration will launch the current file if used.
+            program = "${file}", -- This configuration will launch the current file if used.
             pythonPath = function()
                 -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
                 -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
@@ -67,10 +69,12 @@ local function dapPython(dap)
                     return cwd .. '/venv/bin/python'
                 elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
                     return cwd .. '/.venv/bin/python'
+                elseif vim.fn.executable('~/.virtualenvs/debugpy/bin/python') == 1 then
+                    return '~/.virtualenvs/debugpy/bin/python'
                 else
-                    return '/usr/bin/python'
+                    return '/usr/bin/python3'
                 end
-            end;
+            end,
         },
     }
 end
@@ -84,12 +88,12 @@ local function dapGo(dap)
         type = 'server',
         port = '${port}',
         host = "127.0.0.1",
-        args = {"-ip", "ip"},
+        args = { "-ip", "ip" },
         build_flags = "",
         detached = true,
         executable = {
             command = 'dlv',
-            args = {'dap', '-l', '127.0.0.1:${port}', "--log", "--log-output='logs/dap'"},
+            args = { 'dap', '-l', '127.0.0.1:${port}', "--log", "--log-output='logs/dap'" },
         }
     }
     -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
@@ -134,7 +138,7 @@ local function dapGo(dap)
             mode = "test",
             program = "${file}"
         },
-        -- works with go.mod packages and sub packages 
+        -- works with go.mod packages and sub packages
         {
             type = "delve",
             name = "debug test (go.mod)",
@@ -145,30 +149,35 @@ local function dapGo(dap)
     }
 end
 
+require("dapui").setup()
+require("nvim-dap-virtual-text").setup()
+
+local dap, dapui = require("dap"), require("dapui")
+
+keymap(dap)
+
+dap.listeners.before.attach.dapui_config = function()
+    dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+    dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+    dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+    dapui.close()
+end
+
+
 local M = {}
 
-function M.Config()
-    require("dapui").setup()
-    require("nvim-dap-virtual-text").setup()
-
-    local dap, dapui = require("dap"), require("dapui")
-
-    keymap(dap)
-    dapPython(dap)
+function M.ConfigGo()
     dapGo(dap)
+end
 
-    dap.listeners.before.attach.dapui_config = function()
-        dapui.open()
-    end
-    dap.listeners.before.launch.dapui_config = function()
-        dapui.open()
-    end
-    dap.listeners.before.event_terminated.dapui_config = function()
-        dapui.close()
-    end
-    dap.listeners.before.event_exited.dapui_config = function()
-        dapui.close()
-    end
+function M.ConfigPython()
+    dapPython(dap)
 end
 
 return M
