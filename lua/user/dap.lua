@@ -1,4 +1,8 @@
-local function keymap(dap)
+local dap = require("dap")
+
+require("nvim-dap-virtual-text").setup()
+
+local function keymap()
     -- keymapping to Jetbrains
     vim.keymap.set('n', '<F5>', function() dap.continue() end)
     vim.keymap.set('n', '<F8>', function() dap.step_over() end)
@@ -20,8 +24,8 @@ local function keymap(dap)
     -- end)
 end
 
-local function dapPython(dap)
-    require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+local function dapPython()
+    require('dap-python').setup('/Users/hank/.virtualenvs/debugpy/bin/python')
 
     -- python debugpy
     dap.adapters.python = function(cb, config)
@@ -79,7 +83,7 @@ local function dapPython(dap)
     }
 end
 
-local function dapGo(dap)
+local function dapGo()
     -- go debug delve
     require('dap-go').setup() -- 启动 nvim-dap-go
     dap.adapters.delve = {
@@ -105,6 +109,19 @@ local function dapGo(dap)
             program = "${fileDirname}",
             args = {},
         },
+        {
+            type = "delve",
+            name = "Debug Main",
+            request = "launch",
+            program = "${file}"
+        },
+        {
+            type = "delve",
+            name = "Debug test", -- configuration for debugging test files
+            request = "launch",
+            mode = "test",
+            program = "${file}"
+        },
         -- {
         --     type = "delve",
         --     name = "Exec bin",
@@ -120,28 +137,21 @@ local function dapGo(dap)
         },
         {
             type = "delve",
+            name = "Attach remote",
+            mode = "remote",
+            request = "attach",
+        },
+        {
+            type = "delve",
             name = "Attach (127.0.0.1:8000)",
             mode = "remote",
             request = "attach",
             port = "8000"
         },
-        {
-            type = "delve",
-            name = "Debug",
-            request = "launch",
-            program = "${file}"
-        },
-        {
-            type = "delve",
-            name = "debug test", -- configuration for debugging test files
-            request = "launch",
-            mode = "test",
-            program = "${file}"
-        },
         -- works with go.mod packages and sub packages
         {
             type = "delve",
-            name = "debug test (go.mod)",
+            name = "Debug Test (go.mod)",
             request = "launch",
             mode = "test",
             program = "./${relativeFileDirname}"
@@ -149,35 +159,16 @@ local function dapGo(dap)
     }
 end
 
-require("dapui").setup()
-require("nvim-dap-virtual-text").setup()
-
-local dap, dapui = require("dap"), require("dapui")
-
-keymap(dap)
-
-dap.listeners.before.attach.dapui_config = function()
-    dapui.open()
-end
-dap.listeners.before.launch.dapui_config = function()
-    dapui.open()
-end
-dap.listeners.before.event_terminated.dapui_config = function()
-    dapui.close()
-end
-dap.listeners.before.event_exited.dapui_config = function()
-    dapui.close()
-end
-
+keymap()
 
 local M = {}
 
 function M.ConfigGo()
-    dapGo(dap)
+    dapGo()
 end
 
 function M.ConfigPython()
-    dapPython(dap)
+    dapPython()
 end
 
 return M

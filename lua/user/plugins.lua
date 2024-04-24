@@ -74,25 +74,25 @@ lvim.plugins = {
         end,
     },
     -- smooth scrolling
-    -- {
-    --     "karb94/neoscroll.nvim",
-    --     event = "WinScrolled",
-    --     config = function()
-    --         require('neoscroll').setup({
-    --             -- All these keys will be mapped to their corresponding default scrolling animation
-    --             mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
-    --                 '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
-    --             hide_cursor = true,          -- Hide cursor while scrolling
-    --             stop_eof = true,             -- Stop at <EOF> when scrolling downwards
-    --             use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
-    --             respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-    --             cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-    --             easing_function = nil,       -- Default easing function
-    --             pre_hook = nil,              -- Function to run before the scrolling animation starts
-    --             post_hook = nil,             -- Function to run after the scrolling animation ends
-    --         })
-    --     end
-    -- },
+    {
+        "karb94/neoscroll.nvim",
+        event = "WinScrolled",
+        config = function()
+            require('neoscroll').setup({
+                -- All these keys will be mapped to their corresponding default scrolling animation
+                mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
+                    '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
+                hide_cursor = true,          -- Hide cursor while scrolling
+                stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+                use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+                respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+                cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+                easing_function = nil,       -- Default easing function
+                pre_hook = nil,              -- Function to run before the scrolling animation starts
+                post_hook = nil,             -- Function to run after the scrolling animation ends
+            })
+        end
+    },
     -- pick up where you left off
     {
         "ethanholz/nvim-lastplace",
@@ -138,25 +138,6 @@ lvim.plugins = {
             })
         end
     },
-    -- dap
-    -- {
-    --     "mfussenegger/nvim-dap",
-    --     keys = {
-    --         { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Continue" },
-    --         { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Start" },
-    --         { "<leader>dt", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
-    --     },
-    --     dependencies = {
-    --         -- dap中启用虚拟文本插件
-    --         "theHamsta/nvim-dap-virtual-text",
-    --         { "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
-    --         -- dap 中自动调用 delve 调试 go
-    --         "leoluz/nvim-dap-go",
-    --     },
-    --     config = function()
-    --         require("user.dap").Config()
-    --     end,
-    -- },
     -- python support
     {
         'mfussenegger/nvim-dap-python',
@@ -164,6 +145,12 @@ lvim.plugins = {
             "nvim-neotest/neotest",
             "nvim-neotest/neotest-python",
             "nvim-neotest/nvim-nio",
+        },
+        ft = "python",
+        keys = {
+            -- { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Continue" },
+            { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>", desc = "Dap Start" },
+            -- { "<leader>dt", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
         },
         config = function()
             require("user.dap").ConfigPython()
@@ -181,12 +168,24 @@ lvim.plugins = {
             })
         end
     },
+    -- hint when you type
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "BufRead",
+        config = function() require "lsp_signature".on_attach() end,
+    },
     -- go support plugin
     {
         "leoluz/nvim-dap-go",
         dependencies = {
             -- dap中启用虚拟文本插件
             "theHamsta/nvim-dap-virtual-text",
+        },
+        ft = "go",
+        keys = {
+            -- { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Continue" },
+            { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>", desc = "Dap Start" },
+            -- { "<leader>dt", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
         },
         config = function()
             require("user.dap").ConfigGo()
@@ -196,14 +195,16 @@ lvim.plugins = {
         "fatih/vim-go",
         ft = "go",
         config = function()
-            require "lsp_signature".on_attach()
+            -- require "lsp_signature".on_attach()
         end
     },
-    -- hint when you type
+    -- cwd to the project's root directory
     {
-        "ray-x/lsp_signature.nvim",
+        "ahmedkhalf/lsp-rooter.nvim",
         event = "BufRead",
-        config = function() require "lsp_signature".on_attach() end,
+        config = function()
+            require("lsp-rooter").setup()
+        end,
     },
     -- select window
     {
@@ -261,6 +262,21 @@ lvim.plugins = {
             -- require('github-theme').setup({
             -- })
         end,
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        config = function()
+            require("catppuccin").setup({
+                flavour = "mocha",
+                background = { -- :h background
+                    light = "latte",
+                    dark = "mocha",
+                },
+                transparent_background = false, -- disables setting the background color.
+            })
+        end
     },
     -- ========== colorthemes end ==========
 }
