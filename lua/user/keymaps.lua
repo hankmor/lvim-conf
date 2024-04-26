@@ -11,6 +11,10 @@ lvim.builtin.which_key.mappings["w"] = {
   V = { "<C-w>b<C-w>K", "Toggle Horizonal" },
 }
 
+-- go to head/tail of a line
+lvim.keys.normal_mode["<M-S-left>"] = "^"
+lvim.keys.normal_mode["<M-S-right>"] = "$"
+
 -- Resize window fastly
 lvim.keys.normal_mode["<M-up>"] = ":res -5<cr>"
 lvim.keys.normal_mode["<M-down>"] = ":res +5<cr>"
@@ -113,8 +117,8 @@ lvim.builtin.which_key.mappings["i"] = {
 -- AI neoai etc.
 lvim.builtin.which_key.mappings["a"] = {
   name = "NeoAI Keymaps",
-  o = { "<cmd>:NeoAI", "Toggle Open" },
-  c = { "<cmd>:NeoAIContext", "Toggle Open Context" },
-  i = { "<cmd>:NeoAIInject", "Toggle Inject" },
-  g = { "<cmd>:NeoAIInjectContext", "Toggle Inject Context" },
+  o = { "<cmd>:NeoAI<CR>", "Toggle Open" },
+  c = { "<cmd>:NeoAIContext<CR>", "Toggle Open Context" },
+  i = { "<cmd>:NeoAIInject<CR>", "Toggle Inject" },
+  g = { "<cmd>:NeoAIInjectContext<CR>", "Toggle Inject Context" },
 }
