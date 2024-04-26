@@ -7,22 +7,30 @@
 -- customize options
 -- ======================================================
 
-require("user.options")
+reload "user.options"
 
 -- ======================================================
 -- customize keymaps
 -- ======================================================
 
-require("user.keymaps")
+reload "user.keymaps"
 
 -- ======================================================
 -- customize plugins
 -- ======================================================
 
-require("user.plugins")
-
--- ======================================================
--- customize colorthemes
--- ======================================================
-
-
+reload "user.plugins"
+reload "user.nvimtree"
+reload "user.git"
+reload "user.icons"
+reload "user.bookmark"
+reload "user.zen-mode"
+reload "user.webdev-icons"
+reload "user.todo"
+reload "user.surround"
+reload "user.scrollbar"
+reload "user.numb"
+reload "user.neotest"
+reload "user.neoai"
+reload "user.matchup"
+reload "user.cmp"
