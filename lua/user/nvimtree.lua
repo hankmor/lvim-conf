@@ -3,10 +3,10 @@ local function my_on_attach(bufnr)
   api.config.mappings.default_on_attach(bufnr)
 end
 
--- lvim.builtin.lir.icon = ""
-
 lvim.builtin.nvimtree.setup.on_attach = my_on_attach
 lvim.builtin.nvimtree.setup.view.centralize_selection = true
+lvim.builtin.nvimtree.setup.view.number = true
+lvim.builtin.nvimtree.setup.view.relativenumber = true
 -- lvim.builtin.nvimtree.setup.renderer.icons.glyphs.folder.open = ""
 -- lvim.builtin.nvimtree.setup.renderer.icons.glyphs.folder.default = ""
 -- lvim.builtin.nvimtree.setup.renderer.icons.glyphs.folder.empty = ""

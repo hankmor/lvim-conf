@@ -3,7 +3,7 @@
 -- ======================================================
 
 lvim.plugins = {
-  -- { "lunarvim/colorschemes" },
+  { "lunarvim/colorschemes" },
   {
     "nvim-neorg/neorg",
     ft = "norg",   -- lazy-load on filetype
@@ -146,7 +146,7 @@ lvim.plugins = {
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   -- surroundings
-  { "kylechui/nvim-surround",  event = "VeryLazy", },
+  { "kylechui/nvim-surround", event = "VeryLazy", },
   -- to manage your snippets
   {
     -- snippets管理插件
@@ -363,6 +363,10 @@ lvim.plugins = {
   { "petertriho/nvim-scrollbar",        event = "BufRead" },
   -- peeks lines of the buffer in non-obtrusive way
   { "nacro90/numb.nvim",                event = "BufRead" },
-  -- matchup
+  -- lets you highlight, navigate, and operate on sets of matching text
   { "andymass/vim-matchup",             event = "BufRead" },
+  -- run the code of any language with a single command
+  { "is0n/jaq-nvim",                    event = "BufRead" },
+  -- Partial implementation of LSP inlay hint
+  { "lvimuser/lsp-inlayhints.nvim",     event = "BufRead" },
 }

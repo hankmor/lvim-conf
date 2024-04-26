@@ -5,7 +5,8 @@
 -- load banner, return a table
 local function load_banner()
   local banner = {}
-  for line in io.lines("user/banner.txt") do
+  local home = os.getenv "HOME"
+  for line in io.lines(home .. "/.config/lvim/lua/user/banner.txt") do
     if string.sub(line, 0, 1) ~= "#" then
       table.insert(banner, line)
     end

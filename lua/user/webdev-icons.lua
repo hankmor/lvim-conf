@@ -3,7 +3,6 @@ if not present then
   return
 end
 
--- TODO hello
 webdevicons.set_icon {
   astro = {
     --  󱓟 
