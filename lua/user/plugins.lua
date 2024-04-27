@@ -218,12 +218,12 @@ lvim.plugins = {
     config = function()
     end
   },
-  {
-    "fatih/vim-go",
-    ft = "go",
-    config = function()
-    end
-  },
+  -- {
+  --   "fatih/vim-go",
+  --   ft = "go",
+  --   config = function()
+  --   end
+  -- },
   -- rust support plugin
   { "simrat39/rust-tools.nvim" },
   -- cwd to the project's root directory
