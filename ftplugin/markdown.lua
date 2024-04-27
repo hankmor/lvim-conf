@@ -2,6 +2,9 @@ require("lvim.lsp.manager").setup "marksman"
 
 -- allow word wrap
 vim.opt.wrap = true
+-- allow cursor move between wrapped lines
+vim.keymap.set("n", "<down>", "gj")
+vim.keymap.set("n", "<up>", "gk")
 
 require("glow").setup({
   glow_path = "",                -- will be filled automatically with your glow bin in $PATH, if any
