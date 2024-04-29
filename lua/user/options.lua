@@ -40,6 +40,7 @@ lvim.transparent_window = false
 -- lvim.colorscheme = 'xcodedark'
 -- lvim.colorscheme = 'github_dark_default'
 lvim.colorscheme = 'catppuccin'
+-- lvim.colorscheme = 'catppuccin-latte'
 -- customize color
 lvim.autocommands = {
   {
