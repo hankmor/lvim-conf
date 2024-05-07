@@ -54,6 +54,7 @@ lvim.autocommands = {
         -- customize color to mock xcode
         -- vim.api.nvim_set_hl(0, "Comment", { fg = "#56A56D", underline = false, bold = false })
         vim.api.nvim_set_hl(0, "Comment", { fg = "#9fa0a8", underline = false, bold = false })
+        -- vim.api.nvim_set_hl(0, "Normal", { bg = "#CCE8CF", underline = false, bold = false })
       end,
     },
   },

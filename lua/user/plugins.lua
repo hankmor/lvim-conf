@@ -311,7 +311,21 @@ lvim.plugins = {
           light = "latte",
           dark = "mocha",
         },
-        transparent_background = false, -- disables setting the background color.
+        transparent_background = true, -- disables setting the background color.
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          treesitter = true,
+          notify = false,
+          hop = true,
+          mason = true,
+          which_key = true,
+          mini = {
+            enabled = true,
+            indentscope_color = "",
+          },
+        },
       })
     end
   },
