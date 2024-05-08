@@ -7,7 +7,7 @@ zen_mode.setup {
   window = {
     backdrop = 1,
     height = 1.0,
-    width = 0.9,
+    width = 1.0,
     options = {
       signcolumn = "no",
       number = true,
@@ -25,7 +25,7 @@ zen_mode.setup {
   },
   on_open = function()
     require("lsp-inlayhints").toggle()
-    lvim.builtin.cmp.active = false
+    lvim.builtin.cmp.active = true
     lvim.builtin.breadcrumbs.active = false
     -- vim.cmd [[LspStop]]
     -- local status_ok, _ = pcall(vim.api.nvim_set_option_value, "winbar", nil, { scope = "local" })
