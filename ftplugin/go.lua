@@ -114,13 +114,14 @@ local mappings = {
     g = { "<cmd>GoGenerate<Cr>", "Go Generate" },
     G = { "<cmd>GoGenerate %<Cr>", "Go Generate File" },
     c = { "<cmd>GoCmt<Cr>", "Generate Comment" },
+    I = { "<cmd>GoImpl<Cr>", "Implements Interface" },
     t = { "<cmd>lua require('dap-go').debug_test()<cr>", "Debug Test" },
   },
 }
 
 which_key.register(mappings, opts)
 
-require("nvim-dap-virtual-text").setup()
+-- require("nvim-dap-virtual-text").setup()
 
 -- local function dapGo()
 --     -- go debug delve

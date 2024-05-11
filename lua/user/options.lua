@@ -29,6 +29,11 @@ lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.breadcrumbs.active = true
 lvim.builtin.dap.active = true
+-- folding codes not working, :e
+vim.opt.foldmethod = "expr"                     -- default is "normal"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- default is ""
+vim.opt.foldenable = true                       -- if this option is true and fold method option is other than normal, every time a document is opened everything will be folded.
+-- lvim.builtin.which_key.setup.plugins.presets.z = true
 
 -- set leader key
 lvim.leader = "space"
@@ -38,8 +43,8 @@ lvim.transparent_window = false
 -- lvim.colorscheme = 'tokyonight'
 -- lvim.colorscheme = 'lunar'
 -- lvim.colorscheme = 'xcodedark'
--- lvim.colorscheme = 'github_dark_default'
-lvim.colorscheme = 'catppuccin'
+lvim.colorscheme = 'github_dark_default'
+-- lvim.colorscheme = 'catppuccin'
 -- lvim.colorscheme = 'catppuccin-latte'
 -- customize color
 lvim.autocommands = {
