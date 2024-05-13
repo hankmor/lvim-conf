@@ -121,8 +121,9 @@ local mappings = {
 
 which_key.register(mappings, opts)
 
--- require("nvim-dap-virtual-text").setup()
+require("nvim-dap-virtual-text").setup()
 
+-- comment to use default go dap config
 -- local function dapGo()
 --     -- go debug delve
 --     require('dap-go').setup() -- 启动 nvim-dap-go
