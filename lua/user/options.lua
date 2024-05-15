@@ -32,18 +32,24 @@ lvim.builtin.dap.active = true
 -- folding codes not working, :e
 vim.opt.foldmethod = "expr"                     -- default is "normal"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- default is ""
-vim.opt.foldenable = false                       -- if this option is false and fold method option is other than normal, every time a document is opened everything will be folded.
+vim.opt.foldenable = false                      -- if this option is false and fold method option is other than normal, every time a document is opened everything will be folded.
 -- lvim.builtin.which_key.setup.plugins.presets.z = true
+
+-- allow cursor move between wrapped lines
+vim.keymap.set("n", "<down>", "gj")
+vim.keymap.set("n", "<up>", "gk")
+vim.keymap.set("v", "<down>", "gj")
+vim.keymap.set("v", "<up>", "gk")
 
 -- set leader key
 lvim.leader = "space"
 -- enable transparent window
 lvim.transparent_window = false
 -- set colorscheme
--- lvim.colorscheme = 'tokyonight'
+lvim.colorscheme = 'tokyonight'
 -- lvim.colorscheme = 'lunar'
 -- lvim.colorscheme = 'xcodedark'
-lvim.colorscheme = 'github_dark_default'
+-- lvim.colorscheme = 'github_dark_default'
 -- lvim.colorscheme = 'catppuccin'
 -- lvim.colorscheme = 'catppuccin-latte'
 -- customize color
@@ -89,7 +95,7 @@ local options = {
   ignorecase = true,                       -- ignore case in search patterns
   mouse = "a",                             -- allow the mouse to be used in neovim
   pumheight = 10,                          -- pop up menu height
-  showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
+  showmode = false,                         -- we don't need to see things like -- INSERT -- anymore
   showtabline = 1,                         -- always show tabs
   smartcase = true,                        -- smart case
   smartindent = true,                      -- make indenting smarter again
@@ -107,13 +113,13 @@ local options = {
   cursorline = true,                       -- highlight the current line
   number = true,                           -- set numbered lines
   laststatus = 3,
-  showcmd = false,
-  ruler = false,
+  showcmd = true,
+  ruler = true,
   relativenumber = true, -- set relative numbered lines
-  numberwidth = 4,       -- set number column width to 2 {default 4}
+  numberwidth = 4,       -- set number column width {default 4}
   signcolumn = "yes",    -- always show the sign column, otherwise it would shift the text each time
-  wrap = false,          -- display lines as one long line
-  scrolloff = 10,        -- fix 10 rows when scroll
+  wrap = true,           -- display lines as one long line
+  scrolloff = 5,         -- fix n rows when scroll
   sidescrolloff = 8,
   -- guifont = "monospace:h17", -- the font used in graphical neovim applications
   title = true,
