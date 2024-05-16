@@ -37,6 +37,12 @@ lvim.keys.term_mode["<M-q>"] = "<C-\\><C-n>"
 -- remove keymap, duplicate with <leader>gb
 -- lvim.builtin.which_key.mappings["s"]["b"] = false
 
+-- tranlate quickly
+lvim.keys.normal_mode["te"] = ":Translate EN<CR>"
+lvim.keys.normal_mode["tz"] = ":Translate ZH<CR>"
+lvim.keys.visual_mode["tz"] = ":'<,'>Translate ZH<CR>"
+lvim.keys.normal_mode["tw"] = "viw:Translate ZH<CR>"
+
 -- ======================================================
 -- customize plugin keymaps
 -- ======================================================
@@ -122,3 +128,4 @@ lvim.builtin.which_key.mappings["a"] = {
   i = { "<cmd>:NeoAIInject<CR>", "Toggle Inject" },
   g = { "<cmd>:NeoAIInjectContext<CR>", "Toggle Inject Context" },
 }
+

@@ -399,4 +399,6 @@ lvim.plugins = {
   { "is0n/jaq-nvim",                    event = "BufRead" },
   -- Partial implementation of LSP inlay hint
   { "lvimuser/lsp-inlayhints.nvim",     event = "BufRead" },
+  -- translate plugin
+  { 'uga-rosa/translate.nvim',          event = "BufRead" }
 }
