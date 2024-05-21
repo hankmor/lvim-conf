@@ -224,7 +224,7 @@ lvim.plugins = {
     ft = "go",
     keys = {
       -- { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Continue" },
-      { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>", desc = "Dap Start" },
+      -- { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>", desc = "Dap Start" },
       -- { "<leader>dt", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
     },
     config = function()
@@ -313,7 +313,7 @@ lvim.plugins = {
     'projekt0n/github-nvim-theme',
     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
-    confie = function()
+    config = function()
       -- require('github-theme').setup({
       -- })
     end,
