@@ -75,14 +75,6 @@ lvim.autocommands = {
 lvim.format_on_save = false
 vim.g.go_fmt_autosave = 0
 
--- config cmp
-lvim.builtin.cmp.sources[1].name = 'codeium'
--- local cmp_sources_table = lvim.builtin.cmp.sources
--- cmp_sources_table[#cmp_sources_table + 1] = {
---     name = "codeium",
---     keyword_length = 4,
--- }
-
 -- vim options
 local options = {
   backup = false,                          -- creates a backup file

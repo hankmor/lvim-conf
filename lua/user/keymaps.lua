@@ -52,11 +52,14 @@ lvim.keys.normal_mode["tw"] = "viw:Translate ZH<CR>"
 lvim.builtin.which_key.mappings["lh"] = { "<Cmd>:SymbolsOutline<CR>", "Show Outline" }
 
 -- scissors
-lvim.builtin.which_key.mappings["S"] = {
-  name = "Snippets",
-  e = { "<Cmd>lua require('scissors').editSnippet()<CR>", "Edit Snippet" },
-  a = { "<Cmd>lua require('scissors').addNewSnippet()<CR>", "Add Snippet" },
-}
+-- lvim.builtin.which_key.mappings["S"] = {
+--   name = "Snippets",
+--   e = { "<Cmd>lua require('scissors').editSnippet()<CR>", "Edit Snippet" },
+--   a = { "<Cmd>lua require('scissors').addNewSnippet()<CR>", "Add Snippet" },
+-- }
+lvim.keys.normal_mode["sa"] = ":ScissorsAddNewSnippet<cr>"
+lvim.keys.visual_mode["sa"] = ":'<,'>ScissorsAddNewSnippet<cr>"
+lvim.keys.normal_mode["se"] = ":ScissorsEditSnippet<cr>"
 
 -- select buffer
 lvim.builtin.which_key.mappings["bs"] = { "<Cmd>:BufferLinePick<CR>", "Pick Buffer" }
@@ -89,7 +92,8 @@ lvim.keys.normal_mode["<C-S-i>"] = "<Cmd>:GoImports<CR>"
 lvim.builtin.which_key.mappings["sw"] = { "<Cmd>lua require('nvim-window').pick()<CR>", "Pick Window" }
 
 -- bookmark
-lvim.builtin.which_key.mappings["s"]["b"] = { "<cmd>:Telescope bookmark filemarks<CR>", "Search Bookmarks" }
+lvim.builtin.which_key.mappings["s"]["F"] = { "<cmd>:Telescope bookmark filemarks<CR>", "Search Filemarks" }
+lvim.builtin.which_key.mappings["s"]["b"] = { "<cmd>:Telescope bookmark Bookmarks<CR>", "Search Bookmarks" }
 lvim.builtin.which_key.mappings["B"] = {
   name = "Bookmarks",
   t = { "<cmd>:BookmarkToggle<CR>", "Toggle" },
@@ -128,4 +132,3 @@ lvim.builtin.which_key.mappings["a"] = {
   i = { "<cmd>:NeoAIInject<CR>", "Toggle Inject" },
   g = { "<cmd>:NeoAIInjectContext<CR>", "Toggle Inject Context" },
 }
-

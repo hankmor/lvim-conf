@@ -146,7 +146,7 @@ lvim.plugins = {
   -- pick up where you left off
   {
     "ethanholz/nvim-lastplace",
-    event = "BufRead",
+    -- event = "BufRead",
     config = function()
       require("nvim-lastplace").setup({
         lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
@@ -313,7 +313,7 @@ lvim.plugins = {
     'projekt0n/github-nvim-theme',
     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
+    confie = function()
       -- require('github-theme').setup({
       -- })
     end,
@@ -355,11 +355,9 @@ lvim.plugins = {
       "nvim-lua/plenary.nvim",
       "hrsh7th/nvim-cmp",
     },
-    event = "BufRead",
-    priority = 1001,
-    config = function()
-      require("codeium").setup({
-      })
+    event = "InsertEnter",
+    config = function ()
+      require('codeium').setup()
     end
   },
   -- AI neoai
@@ -400,5 +398,7 @@ lvim.plugins = {
   -- Partial implementation of LSP inlay hint
   { "lvimuser/lsp-inlayhints.nvim",     event = "BufRead" },
   -- translate plugin
-  { 'uga-rosa/translate.nvim',          event = "BufRead" }
+  { 'uga-rosa/translate.nvim',          event = "BufRead" },
+  -- cmp nerdfont
+  { 'chrisgrieser/cmp-nerdfont',        event = "BufRead" },
 }

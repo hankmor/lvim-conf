@@ -4,7 +4,7 @@
 --     -- winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
 --     col_offset = -3,
 --     side_padding = 1,
---     scrollbar = false,
+--     scrollbar = true,
 --     -- scrollbar = {
 --     --   position = 'inside',
 --     -- },
@@ -31,3 +31,16 @@
 
 --   return true
 -- end
+
+local cmp_sources_table = lvim.builtin.cmp.sources
+
+-- nerdfont
+cmp_sources_table[#cmp_sources_table + 1] = {
+  name = "nerdfont",
+}
+
+-- config cmp
+cmp_sources_table[#cmp_sources_table + 1] = {
+  name = "codeium",
+}
+

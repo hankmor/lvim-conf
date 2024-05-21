@@ -3,4 +3,4 @@ reload("bookmark").setup {
   highlight = "Function",
 }
 
-require("telescope").load_extension "bookmark"
+require("telescope").load_extension('bookmark')
