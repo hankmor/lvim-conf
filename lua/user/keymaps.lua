@@ -2,6 +2,18 @@
 -- customize keymap
 -- ======================================================
 
+-- dap keymapping to Jetbrains
+local dap = require("dap")
+vim.keymap.set('n', '<F8>', function() dap.step_over() end)
+vim.keymap.set('n', '<F7>', function() dap.step_into() end)
+vim.keymap.set('n', '<F9>', function() dap.step_out() end)
+vim.keymap.set('n', '<F10>', function() dap.continue() end)
+-- lvim.builtin.which_key.mappings["da"] = { "<cmd>lua require('dap.ui.widgets').hover()<CR>", "Eval Expression" }
+-- lvim.builtin.which_key.mappings["dj"] = { "<cmd>lua require('dap.ui.widgets').preview()<CR>", "Eval Expression" }
+-- lvim.builtin.which_key.mappings["dA"] = { "<Cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames)<CR>", "Eval Expression" }
+-- lvim.builtin.which_key.mappings["dJ"] = { "<Cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').scopes)<CR>", "Eval Expression" }
+lvim.builtin.which_key.mappings["de"] = { "<Cmd>lua require('dapui').eval()<CR>", "Eval Expression" }
+
 -- Mapping window
 lvim.builtin.which_key.mappings["w"] = {
   name = "Window",

@@ -2,6 +2,8 @@
 -- customize vim options
 -- ======================================================
 
+-- lvim.use_icons = true
+
 -- load banner, return a table
 local function load_banner()
   local banner = {}

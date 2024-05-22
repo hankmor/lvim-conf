@@ -58,36 +58,13 @@ gopher.setup {
 ------------------------
 -- Dap
 ------------------------
-local dap = require("dap")
+-- local dap = require("dap")
 local dap_ok, dapgo = pcall(require, "dap-go")
 if not dap_ok then
   return
 end
 
-local function config_keymap()
-  -- keymapping to Jetbrains
-  vim.keymap.set('n', '<F8>', function() dap.step_over() end)
-  vim.keymap.set('n', '<F7>', function() dap.step_into() end)
-  vim.keymap.set('n', '<F9>', function() dap.step_out() end)
-  vim.keymap.set('n', '<F10>', function() dap.continue() end)
-
-  -- local widgets = require('dap.ui.widgets')
-  -- vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
-  --     widgets.hover()
-  -- end)
-  -- vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
-  --     widgets.preview()
-  -- end)
-  -- vim.keymap.set('n', '<Leader>df', function()
-  --     widgets.centered_float(widgets.frames)
-  -- end)
-  -- vim.keymap.set('n', '<Leader>ds', function()
-  --     widgets.centered_float(widgets.scopes)
-  -- end)
-end
-
 dapgo.setup()
-config_keymap()
 
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
