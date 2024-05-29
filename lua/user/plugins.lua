@@ -179,20 +179,29 @@ lvim.plugins = {
       })
     end
   },
+  -- neotest
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+
+      "nvim-neotest/neotest-go",
+      "nvim-neotest/neotest-python",
+      -- Your other test adapters here
+    },
+  },
   -- python support
   {
     'mfussenegger/nvim-dap-python',
-    dependencies = {
-      "nvim-neotest/neotest",
-      "nvim-neotest/neotest-python",
-      "nvim-neotest/nvim-nio",
-    },
     ft = "python",
-    keys = {
-      -- { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Continue" },
-      { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>", desc = "Dap Start" },
-      -- { "<leader>dt", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
-    },
+    -- keys = {
+    --   -- { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Continue" },
+    --   { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>", desc = "Dap Start" },
+    --   -- { "<leader>dt", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
+    -- },
     config = function()
     end
   },
@@ -222,13 +231,6 @@ lvim.plugins = {
       "theHamsta/nvim-dap-virtual-text",
     },
     ft = "go",
-    keys = {
-      -- { "<leader>dc", "<Cmd>lua require'dap'.continue()<CR>",          desc = "Dap Continue" },
-      -- { "<leader>ds", "<Cmd>lua require'dap'.continue()<CR>", desc = "Dap Start" },
-      -- { "<leader>dt", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Toggle Breakpoint" },
-    },
-    config = function()
-    end
   },
   {
     "olexsmir/gopher.nvim",
@@ -356,7 +358,7 @@ lvim.plugins = {
       "hrsh7th/nvim-cmp",
     },
     event = "InsertEnter",
-    config = function ()
+    config = function()
       require('codeium').setup()
     end
   },

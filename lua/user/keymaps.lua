@@ -12,7 +12,10 @@ vim.keymap.set('n', '<F10>', function() dap.continue() end)
 -- lvim.builtin.which_key.mappings["dj"] = { "<cmd>lua require('dap.ui.widgets').preview()<CR>", "Eval Expression" }
 -- lvim.builtin.which_key.mappings["dA"] = { "<Cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames)<CR>", "Eval Expression" }
 -- lvim.builtin.which_key.mappings["dJ"] = { "<Cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').scopes)<CR>", "Eval Expression" }
-lvim.builtin.which_key.mappings["de"] = { "<Cmd>lua require('dapui').eval()<CR>", "Eval Expression" }
+lvim.builtin.which_key.mappings["de"] = { "<Cmd>:lua require('dapui').eval()<CR>", "Eval Expression" }
+-- debug test method above cusor, prefer neotest
+-- lvim.builtin.which_key.mappings["dT"] = { "<cmd>:lua require('dap-go').debug_test()<CR>", "Debug Cursor Test Method" }
+-- lvim.builtin.which_key.mappings["dR"] = { "<cmd>:lua require('dap-go').debug_last_test()<CR>", "Debug Last Test Again" }
 
 -- Mapping window
 lvim.builtin.which_key.mappings["w"] = {

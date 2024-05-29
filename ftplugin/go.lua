@@ -58,7 +58,6 @@ gopher.setup {
 ------------------------
 -- Dap
 ------------------------
--- local dap = require("dap")
 local dap_ok, dapgo = pcall(require, "dap-go")
 if not dap_ok then
   return
@@ -97,9 +96,9 @@ local mappings = {
 }
 
 which_key.register(mappings, opts)
-
 require("nvim-dap-virtual-text").setup()
 
+-- local dap = require("dap")
 -- comment to use default go dap config
 -- local function dapGo()
 --     -- go debug delve
@@ -146,26 +145,26 @@ require("nvim-dap-virtual-text").setup()
 --         --     request = "exec",
 --         --     file = "${file}",
 --         -- },
---         {
---             type = "delve",
---             name = "Attach Picked Process",
---             request = "attach",
---             processId = require("dap.utils").pick_process
---             -- program = "${file}"
---         },
---         {
---             type = "",
---             name = "Attach remote",
---             mode = "remote",
---             request = "attach",
---         },
---         {
---             type = "delve",
---             name = "Attach (127.0.0.1:8000)",
---             mode = "remote",
---             request = "attach",
---             port = "8000"
---         },
+--         -- {
+--         --     type = "delve",
+--         --     name = "Attach Picked Process",
+--         --     request = "attach",
+--         --     processId = require("dap.utils").pick_process
+--         --     -- program = "${file}"
+--         -- },
+--         -- {
+--         --     type = "",
+--         --     name = "Attach remote",
+--         --     mode = "remote",
+--         --     request = "attach",
+--         -- },
+--         -- {
+--         --     type = "delve",
+--         --     name = "Attach (127.0.0.1:8000)",
+--         --     mode = "remote",
+--         --     request = "attach",
+--         --     port = "8000"
+--         -- },
 --         -- works with go.mod packages and sub packages
 --         {
 --             type = "delve",
@@ -176,3 +175,5 @@ require("nvim-dap-virtual-text").setup()
 --         }
 --     }
 -- end
+
+-- dapGo()
