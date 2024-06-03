@@ -23,6 +23,13 @@ zen_mode.setup {
     gitsigns = { enabled = false },
     tmux = { enabled = false },
     twilight = { enabled = false },
+    -- this will change the font size on wezterm when in zen mode
+    -- See alse also the Plugins/Wezterm section in this projects README
+    wezterm = {
+      enabled = true,
+      -- can be either an absolute font size or the number of incremental steps
+      font = "+2", -- (10% increase per step)
+    },
   },
   on_open = function()
     lsp_inlayhints.toggle()
