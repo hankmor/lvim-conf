@@ -3,6 +3,7 @@ if not status_ok then
   return
 end
 
+local lsp_inlayhints = require "lsp-inlayhints"
 zen_mode.setup {
   window = {
     backdrop = 1,
@@ -24,7 +25,7 @@ zen_mode.setup {
     twilight = { enabled = false },
   },
   on_open = function()
-    require("lsp-inlayhints").toggle()
+    lsp_inlayhints.toggle()
     lvim.builtin.cmp.active = true
     lvim.builtin.breadcrumbs.active = false
     -- vim.cmd [[LspStop]]
@@ -34,7 +35,7 @@ zen_mode.setup {
     -- end
   end,
   on_close = function()
-    require("lsp-inlayhints").toggle()
+    lsp_inlayhints.toggle()
     lvim.builtin.breadcrumbs.active = true
     lvim.builtin.cmp.active = true
     -- vim.cmd [[LspStart]]
