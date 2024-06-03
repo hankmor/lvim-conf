@@ -20,6 +20,8 @@ lvim.builtin.alpha.dashboard.section.header.val = load_banner
 
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
+-- neovim 0.10 enable inlay hint
+vim.lsp.inlay_hint.enable()
 lvim.builtin.lualine.style = "lvim"
 lvim.builtin.alpha.active = true
 lvim.reload_config_on_save = false
