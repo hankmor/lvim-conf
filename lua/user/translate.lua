@@ -5,7 +5,7 @@ end
 
 require("translate").setup({
   default = {
-    command = "deepl_pro",
+    -- command = "deepl_pro", // comment to use google as default
   },
   preset = {
     output = {
