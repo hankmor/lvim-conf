@@ -205,6 +205,17 @@ lvim.plugins = {
     config = function()
     end
   },
+  -- select python venv in neovim
+  {
+    'linux-cultist/venv-selector.nvim',
+    dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim', 'mfussenegger/nvim-dap-python' },
+    opts = {
+      -- Your options go here
+      -- name = "venv",
+      -- auto_refresh = false
+    },
+    event = 'VeryLazy', -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
+  },
   -- lsp diagnostics highlight groups for non lsp colorschemes
   {
     "folke/lsp-colors.nvim",
@@ -403,4 +414,6 @@ lvim.plugins = {
   { 'uga-rosa/translate.nvim',          event = "BufRead" },
   -- cmp nerdfont
   { 'chrisgrieser/cmp-nerdfont',        event = "BufRead" },
+  -- typescript support
+  { 'yioneko/nvim-vtsls',               event = "BufRead" }
 }

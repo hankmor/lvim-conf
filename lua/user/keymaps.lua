@@ -147,3 +147,12 @@ lvim.builtin.which_key.mappings["a"] = {
   i = { "<cmd>:NeoAIInject<CR>", "Toggle Inject" },
   g = { "<cmd>:NeoAIInjectContext<CR>", "Toggle Inject Context" },
 }
+
+-- python venv selector
+lvim.builtin.which_key.mappings["v"] = {
+  name = "Python Support",
+  -- Keymap to open VenvSelector to pick a venv.
+  s = { '<cmd>VenvSelect<cr>', 'Select venv' },
+  -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
+  c = { '<cmd>VenvSelectCached<cr>', 'Select Cached venv' },
+}
