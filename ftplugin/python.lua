@@ -1,6 +1,6 @@
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
-  return
+	return
 end
 
 -- Advanced pyright configuration
@@ -35,20 +35,21 @@ formatters.setup { { name = "black" } }
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup { { command = "flake8", args = { "--ignore=E203,E501" }, filetypes = { "python" } } }
 
-local opts = {
-  mode = "n",     -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true,  -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true,  -- use `nowait` when creating keymaps
-}
+-- local opts = {
+--   mode = "n",     -- NORMAL mode
+--   prefix = "<leader>",
+--   buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
+--   silent = true,  -- use `silent` when creating keymaps
+--   noremap = true, -- use `noremap` when creating keymaps
+--   nowait = true,  -- use `nowait` when creating keymaps
+-- }
 
 -- setup debug adapter
 lvim.builtin.dap.active = true
-local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+-- local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
 pcall(function()
-  require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+	-- require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+  require("dap-python").setup()
 end)
 
 -- setup testing
