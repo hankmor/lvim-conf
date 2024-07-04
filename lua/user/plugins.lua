@@ -416,9 +416,9 @@ lvim.plugins = {
 	{ "chrisgrieser/cmp-nerdfont", event = "BufRead" },
 	-- typescript support
 	{ "yioneko/nvim-vtsls", event = "BufRead" },
-	{
-		"pmizio/typescript-tools.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {},
-	},
+	-- {
+	-- 	"pmizio/typescript-tools.nvim",
+	-- 	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+	-- 	opts = {},
+	-- },
 }
