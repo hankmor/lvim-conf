@@ -50,7 +50,7 @@ jaq_nvim.setup {
     -- Floating Window / FTerm settings
     float = {
       -- Floating window border (see ':h nvim_open_win')
-      border = "none",
+      border = "single",
 
       -- Num from `0 - 1` for measurements
       height = 0.8,
