@@ -7,35 +7,34 @@
 -- customize options
 -- ======================================================
 
-reload "user.options"
+reload("user.options")
 
 -- ======================================================
 -- customize keymaps
 -- ======================================================
 
-reload "user.keymaps"
+reload("user.keymaps")
 
 -- ======================================================
 -- customize plugins
 -- ======================================================
 
-reload "user.plugins"
-reload "user.nvimtree"
-reload "user.git"
-reload "user.icons"
-reload "user.bookmark"
-reload "user.zen-mode"
-reload "user.webdev-icons"
-reload "user.todo"
-reload "user.surround"
-reload "user.scrollbar"
-reload "user.numb"
-reload "user.neotest"
-reload "user.neoai"
-reload "user.cmp"
-reload "user.jaq"
-reload "user.lsp-inlayhints"
-reload "user.lualine"
-reload "user.codeium"
-reload "user.translate"
-
+reload("user.plugins")
+reload("user.nvimtree")
+reload("user.git")
+reload("user.icons")
+reload("user.bookmark")
+reload("user.zen-mode")
+reload("user.webdev-icons")
+reload("user.todo")
+reload("user.surround")
+reload("user.scrollbar")
+reload("user.numb")
+reload("user.neotest")
+reload("user.neoai")
+reload("user.cmp")
+reload("user.jaq")
+reload("user.lsp-inlayhints")
+reload("user.lualine")
+reload("user.codeium")
+reload("user.translate")

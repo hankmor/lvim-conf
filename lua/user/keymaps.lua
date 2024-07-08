@@ -4,10 +4,18 @@
 
 -- dap keymapping to Jetbrains
 local dap = require("dap")
-vim.keymap.set('n', '<F8>', function() dap.step_over() end)
-vim.keymap.set('n', '<F7>', function() dap.step_into() end)
-vim.keymap.set('n', '<F9>', function() dap.step_out() end)
-vim.keymap.set('n', '<F10>', function() dap.continue() end)
+vim.keymap.set("n", "<F8>", function()
+	dap.step_over()
+end)
+vim.keymap.set("n", "<F7>", function()
+	dap.step_into()
+end)
+vim.keymap.set("n", "<F9>", function()
+	dap.step_out()
+end)
+vim.keymap.set("n", "<F10>", function()
+	dap.continue()
+end)
 -- lvim.builtin.which_key.mappings["da"] = { "<cmd>lua require('dap.ui.widgets').hover()<CR>", "Eval Expression" }
 -- lvim.builtin.which_key.mappings["dj"] = { "<cmd>lua require('dap.ui.widgets').preview()<CR>", "Eval Expression" }
 -- lvim.builtin.which_key.mappings["dA"] = { "<Cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames)<CR>", "Eval Expression" }
@@ -19,11 +27,11 @@ lvim.builtin.which_key.mappings["de"] = { "<Cmd>:lua require('dapui').eval()<CR>
 
 -- Mapping window
 lvim.builtin.which_key.mappings["w"] = {
-  name = "Window",
-  h = { ":split<CR>", "Split Horizonal" },
-  v = { ":vsplit<CR>", "Split Vertical" },
-  H = { "<C-w>b<C-w>H", "Toggle Vertical" },
-  V = { "<C-w>b<C-w>K", "Toggle Horizonal" },
+	name = "Window",
+	h = { ":split<CR>", "Split Horizonal" },
+	v = { ":vsplit<CR>", "Split Vertical" },
+	H = { "<C-w>b<C-w>H", "Toggle Vertical" },
+	V = { "<C-w>b<C-w>K", "Toggle Horizonal" },
 }
 
 -- go to head/tail of a line
@@ -86,13 +94,13 @@ lvim.keys.normal_mode["S"] = ":HopWord<cr>"
 
 -- trouble
 lvim.builtin.which_key.mappings["t"] = {
-  name = "Diagnostics",
-  t = { "<cmd>TroubleToggle<cr>", "trouble" },
-  w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
-  d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
-  q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
-  l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
-  r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
+	name = "Diagnostics",
+	t = { "<cmd>TroubleToggle<cr>", "trouble" },
+	w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
+	d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
+	q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
+	l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
+	r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
 }
 
 -- go.nvim
@@ -110,21 +118,21 @@ lvim.builtin.which_key.mappings["sw"] = { "<Cmd>lua require('nvim-window').pick(
 lvim.builtin.which_key.mappings["s"]["F"] = { "<cmd>:Telescope bookmark filemarks<CR>", "Search Filemarks" }
 lvim.builtin.which_key.mappings["s"]["b"] = { "<cmd>:Telescope bookmark Bookmarks<CR>", "Search Bookmarks" }
 lvim.builtin.which_key.mappings["B"] = {
-  name = "Bookmarks",
-  t = { "<cmd>:BookmarkToggle<CR>", "Toggle" },
-  n = { "<cmd>:BookmarkNext<CR>", "Next" },
-  p = { "<cmd>:BookmarkPrev<CR>", "Prev" },
-  l = { "<cmd>:BookmarkList<CR>", "List" },
-  c = { "<cmd>:BookmarkClear<CR>", "Clear" },
-  C = { "<cmd>:BookmarkClearProject<CR>", "Clear Project" },
+	name = "Bookmarks",
+	t = { "<cmd>:BookmarkToggle<CR>", "Toggle" },
+	n = { "<cmd>:BookmarkNext<CR>", "Next" },
+	p = { "<cmd>:BookmarkPrev<CR>", "Prev" },
+	l = { "<cmd>:BookmarkList<CR>", "List" },
+	c = { "<cmd>:BookmarkClear<CR>", "Clear" },
+	C = { "<cmd>:BookmarkClearProject<CR>", "Clear Project" },
 }
 -- filemark
 lvim.builtin.which_key.mappings["F"] = {
-  name = "Filemarks",
-  t = { "<cmd>:FilemarkToggle<CR>", "Toggle" },
-  n = { "<cmd>:FilemarkNext<CR>", "Next" },
-  p = { "<cmd>:FilemarkPrev<CR>", "Prev" },
-  l = { "<cmd>:FilemarkList<CR>", "List" },
+	name = "Filemarks",
+	t = { "<cmd>:FilemarkToggle<CR>", "Toggle" },
+	n = { "<cmd>:FilemarkNext<CR>", "Next" },
+	p = { "<cmd>:FilemarkPrev<CR>", "Prev" },
+	l = { "<cmd>:FilemarkList<CR>", "List" },
 }
 
 -- zen mode
@@ -132,27 +140,23 @@ lvim.keys.normal_mode["<C-z>"] = "<Cmd>:ZenMode<CR>"
 
 -- todo comments
 lvim.builtin.which_key.mappings["i"] = {
-  name = "Todo Comments",
-  q = { "<cmd>:TodoQuickFix<CR>", "Quick Fix" },
-  l = { "<cmd>:TodoLocList<CR>", "Loc List" },
-  t = { "<cmd>:TodoTrouble<CR>", "Trouble" },
-  s = { "<cmd>:TodoTelescope<CR>", "Telescope" },
+	name = "Todo Comments",
+	q = { "<cmd>:TodoQuickFix<CR>", "Quick Fix" },
+	l = { "<cmd>:TodoLocList<CR>", "Loc List" },
+	t = { "<cmd>:TodoTrouble<CR>", "Trouble" },
+	s = { "<cmd>:TodoTelescope<CR>", "Telescope" },
 }
 
 -- AI neoai etc.
 lvim.builtin.which_key.mappings["a"] = {
-  name = "NeoAI Keymaps",
-  o = { "<cmd>:NeoAI<CR>", "Toggle Open" },
-  c = { "<cmd>:NeoAIContext<CR>", "Toggle Open Context" },
-  i = { "<cmd>:NeoAIInject<CR>", "Toggle Inject" },
-  g = { "<cmd>:NeoAIInjectContext<CR>", "Toggle Inject Context" },
+	name = "NeoAI Keymaps",
+	o = { "<cmd>:NeoAI<CR>", "Toggle Open" },
+	c = { "<cmd>:NeoAIContext<CR>", "Toggle Open Context" },
+	i = { "<cmd>:NeoAIInject<CR>", "Toggle Inject" },
+	g = { "<cmd>:NeoAIInjectContext<CR>", "Toggle Inject Context" },
 }
 
 -- python venv selector
-lvim.builtin.which_key.mappings["v"] = {
-  name = "Python Support",
-  -- Keymap to open VenvSelector to pick a venv.
-  s = { '<cmd>VenvSelect<cr>', 'Select venv' },
-  -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
-  c = { '<cmd>VenvSelectCached<cr>', 'Select Cached venv' },
-}
+lvim.builtin.which_key.mappings["sv"] = { "<cmd>VenvSelect<cr>", "Select venv" }
+lvim.builtin.which_key.mappings["sV"] = { "<cmd>VenvSelectCached<cr>", "Select Cached Venv" }
+lvim.builtin.which_key.mappings["se"] = { "<cmd>VenvSelectCurrent<cr>", "Select Current Venv" }
